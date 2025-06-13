@@ -69,6 +69,7 @@ const dice = () => {
 };
 
 console.log(`\nEsercizio 1 \nGeneriamo un numero a caso: ${dice()}`);
+
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
@@ -234,7 +235,7 @@ console.log(`\nEsercizio 8 \nTi va di tirare i dadi?`, rollTheDices(5));
 const howManyDays = (date) => {
   const now = new Date();
   const endDate = new Date(date);
-  const difference = Math.floor((now - endDate) / (1000 * 60 * 60 * 24)); //dovrebbe essere in millesecondi
+  const difference = Math.floor((now - endDate) / (1000 * 60 * 60 * 24));
   return difference;
 };
 
@@ -256,7 +257,6 @@ const isTodayMyBirthday = () => {
     console.log("Tanti auguri!");
     return true;
   } else {
-    // sarebbe carino scrivere un messaggio con "mancano tot giorni al tuo compleanno!" oppure "sono già passati tot giorni dal tuo compleanno!"
     return false;
   }
 };
@@ -264,6 +264,8 @@ const isTodayMyBirthday = () => {
 console.log(
   `\nEsercizio 10 \nOggi è il mio compleanno? ${isTodayMyBirthday()}`
 );
+
+isTodayMyBirthday();
 
 // Arrays & Oggetti
 
@@ -276,7 +278,6 @@ console.log(
 
 const deleteProp = (obj, s) => {
   delete obj[s];
-
   return obj;
 };
 
@@ -516,7 +517,9 @@ const removeIndex = (index) => {
     movies.splice(index, 1);
     return movies;
   } else {
-    console.log("L'indice selezionato non ha un valore compreso tra 0 e 13");
+    console.log(
+      "L'indice selezionato non ha un valore compreso tra 0 e 13, per cui non possiamo trovare il tuo film."
+    );
   }
 };
 
@@ -615,8 +618,7 @@ const addClassTestTr = () => {
 
 */
 
-const halfTree = (n) => {
-  const div = document.getElementById("half-tree");
+const createTree = (n, div) => {
   for (let i = 1; i <= n; i++) {
     const p = document.createElement("p");
     for (let k = 0; k < i; k++) {
@@ -625,6 +627,11 @@ const halfTree = (n) => {
 
     div.appendChild(p);
   }
+};
+
+const halfTree = (n) => {
+  const div = document.getElementById("half-tree");
+  createTree(n, div);
 };
 
 console.log(
@@ -650,14 +657,7 @@ const tree = (n) => {
   div.style.display = "inline-block";
   div.style.margin = "2em 0";
 
-  for (let i = 1; i <= n; i++) {
-    const p = document.createElement("p");
-    for (let k = 0; k < i; k++) {
-      p.innerText += "*";
-    }
-
-    div.appendChild(p);
-  }
+  createTree(n, div);
 };
 
 console.log(

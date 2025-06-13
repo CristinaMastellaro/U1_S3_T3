@@ -466,7 +466,6 @@ console.log(
 
 const sumAllTheYears = () => {
   const allTheYears = onlyTheYears();
-  console.log(allTheYears);
   return allTheYears.reduce((tot, movieYear) => tot + parseInt(movieYear), 0);
 };
 
@@ -628,6 +627,9 @@ const halfTree = (n) => {
   }
 };
 
+console.log(
+  "\nEsercizio 27 \nHo voglia di costruire un mezzo albero di 20 asterischi di altezza."
+);
 halfTree(20);
 
 /* ESERCIZIO 28
@@ -644,6 +646,10 @@ halfTree(20);
 
 const tree = (n) => {
   const div = document.getElementById("tree");
+  div.style.textAlign = "center";
+  div.style.display = "inline-block";
+  div.style.margin = "2em 0";
+
   for (let i = 1; i <= n; i++) {
     const p = document.createElement("p");
     for (let k = 0; k < i; k++) {
@@ -654,6 +660,9 @@ const tree = (n) => {
   }
 };
 
+console.log(
+  "\nEsercizio 28 \nMa perché solo mezzo? Costruiamone uno intero da 35 asterischi di altezza!"
+);
 tree(35);
 
 /* ESERCIZIO 29
@@ -675,10 +684,16 @@ const isItPrime = (n) => {
 
   if (divisori.length === 2 || n === 2) {
     console.log(n + " è un numero primo!");
+    return true;
   } else {
     console.log(n + " non è un numero primo!");
+    return false;
   }
 };
 
-console.log("\nEsercizio 29 \nScopriamo se il nostro numero è primo!");
+console.log(
+  "\nEsercizio 29 \nScopriamo se il nostro numero è primo! (Spoiler: " +
+    isItPrime(5009) +
+    ")"
+);
 isItPrime(5009);
